@@ -11,6 +11,15 @@ CREATE TABLE pedidos (
 	status_pedido VARCHAR(50)
 );
 
+CREATE SEQUENCE seq_pedido_id
+	START WITH 1
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 1000000
+	CACHE 10;
+
+----- EXECUTAR A PARTIR DAQUI ------	
+
 DECLARE @cliente_id INT = 1;
 DECLARE @produto_id INT = 1;
 DECLARE @quantidade INT = 2;
@@ -55,12 +64,7 @@ BEGIN
 		@valor_total, 
 		GETDATE(), 
 		@status_pedido
-		)
+		);
 END
 
-CREATE SEQUENCE seq_pedido_id
-	START WITH 1
-	INCREMENT BY 1
-	MINVALUE 1
-	MAXVALUE 1000000
-	CACHE 10;
+SELECT * FROM  pedidos

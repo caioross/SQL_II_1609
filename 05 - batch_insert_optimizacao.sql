@@ -37,9 +37,9 @@ BEGIN TRY
 			SELECT
 			--Gerando um cliente_id aleatorio entre 1 e 1000
 				ABS(CHECKSUM(NEWID())) % 1000 + 1, 
-			--Gerando um produto_id aleatorio entre 1 e 1000
+			--Gerando um produto_id aleatorio entre 1 e 100
 				ABS(CHECKSUM(NEWID())) % 100 + 1,
-			--Gerando um quantidade aleatorio entre 1 e 1000
+			--Gerando um quantidade aleatorio entre 1 e 10
 				ABS(CHECKSUM(NEWID())) % 10 + 1,
 			--Gerando um valor_total aleatorio entre 1 e 1000
 				(ABS(CHECKSUM(NEWID())) % 1000 + 1) * 10,
@@ -72,5 +72,3 @@ END CATCH
 
 --Bora ver oq tem dentro da tabela??
 SELECT COUNT(*) AS Total_Vendas FROM vendas;
-
---          05 - Insert_tabela_temporal.sql
